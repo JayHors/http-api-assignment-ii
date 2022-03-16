@@ -1,0 +1,22 @@
+{
+  "name": "http-api-assignment-ii",
+  "version": "1.0.0",
+  "description": "lolcat",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "pretest": "eslint ./src --fix",
+    "test": "echo \"Tests completed\" ",
+    "devserver":"nodemon --watch ./src ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JayHors/http-api-assignment-ii.git"
+  },
+  "author": "Jay Horsfall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JayHors/http-api-assignment-ii/issues"
+  },
+  "homepage": "https://github.com/JayHors/http-api-assignment-ii#readme"
+}
