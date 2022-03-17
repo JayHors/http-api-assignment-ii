@@ -7,7 +7,7 @@
     "start": "node ./src/server.js",
     "pretest": "eslint ./src --fix",
     "test": "echo \"Tests completed\" ",
-    "devserver":"nodemon --watch ./src ./src/server.js"
+    "devserver": "nodemon --watch ./src ./src/server.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/JayHors/http-api-assignment-ii/issues"
   },
-  "homepage": "https://github.com/JayHors/http-api-assignment-ii#readme"
+  "homepage": "https://github.com/JayHors/http-api-assignment-ii#readme",
+  "devDependencies": {
+    "eslint": "^8.11.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.25.4"
+  }
 }

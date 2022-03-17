@@ -6,20 +6,32 @@ const jsonHandler = require('./jsonResponses.js');
 const port = process.env.PORT || process.env.NODE_PORT || 3500;
 
 const urlHandles = {
+  GET: {
     '/': fileHandler.getIndex,
     '/style.css': fileHandler.getCSS,
-    '/getUsers': jsonHandler.success,
+    '/getUsers': jsonHandler.getUsers,
     '/notReal': jsonHandler.notFound,
     notFound: jsonHandler.notFound,
+  },
+  HEAD: {
+    '/': fileHandler.getIndex,
+    '/style.css': fileHandler.getCSS,
+    '/getUsers': jsonHandler.getUsers,
+    '/notReal': jsonHandler.notFound,
+    notFound: jsonHandler.notFound,
+  },
+  POST: {
+    '/addUser': jsonHandler.addUser,
+  },
 };
 
 function onRequest(request, response) {
-  const parsedUrl = new url.URL(request.url, 'https://http-api-1-jayhors.herokuapp.com/');
-  const hasHead = (request.method === 'HEAD') ? true : false;
-  if (urlHandles[parsedUrl.pathname]) {
-    urlHandles[parsedUrl.pathname](request, response, hasHead);
+  const parsedUrl = new url.URL(request.url, 'https://http-api-2-jayhors.herokuapp.com/');
+  const { method } = request;
+  if (urlHandles[method][parsedUrl.pathname]) {
+    urlHandles[method][parsedUrl.pathname](request, response);
   } else {
-    urlHandles.notFound(request, response, hasHead);
+    urlHandles.GET.notFound(request, response);
   }
 }
 
